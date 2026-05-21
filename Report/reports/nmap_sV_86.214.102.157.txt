@@ -1,0 +1,10 @@
+# Nmap 7.98 scan initiated Wed May 20 19:09:45 2026 as: nmap -Pn -sV -sT -p 80,443 -n -oN loot/reports/nmap_sV_86.214.102.157.txt 86.214.102.157
+Nmap scan report for 86.214.102.157
+Host is up (0.0038s latency).
+
+PORT    STATE SERVICE    VERSION
+80/tcp  open  http?
+443/tcp open  ssl/https?
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed May 20 19:11:52 2026 -- 1 IP address (1 host up) scanned in 127.02 seconds

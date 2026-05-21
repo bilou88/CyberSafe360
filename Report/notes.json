@@ -1,0 +1,158 @@
+{
+  "scope_rsc_nextjs": {
+    "content": "Research scope for target 37.64.195.242 focusing on React Server Components (RSC) and Next.js ecosystem.\n\nTargets/Products:\n- Next.js (v13.x through v15.x)\n- React 18.x and 19.x with RSC enabled\n- react-server-dom-* packages (react-server-dom-webpack, react-server-dom-esm)\n- Node.js runtimes commonly used with Next.js (Node 18\u201322 LTS/current)\n- Vercel/Serverless Next.js deployments (where applicable)\n\nPlatforms/Tech stack assumptions:\n- Linux-based Node.js hosting or Vercel edge/serverless\n- Bundlers/transpilers used by Next.js (SWC), Webpack where applicable\n\nTimeframe:\n- Prioritize 2024-01-01 through 2026-05-20 (latest)\n\nAuthoritative sources to consult:\n- NVD (nvd.nist.gov), MITRE CVE, GitHub Advisory Database\n- Vendor advisories (Vercel/Next.js release notes, React/Meta release notes)\n- Package registries and changelogs (npm, react-server-dom-* packages)\n- Security mailing lists and reputable researchers/blogs\n\nGoal:\n- Identify RCE, injection, deserialization, path traversal, authz bypass, and supply-chain issues in RSC/Next.js and core dependencies. Record CVEs, CVSS, affected versions, references, and patches/mitigations.",
+    "category": "task",
+    "confidence": "high",
+    "status": "confirmed",
+    "metadata": {
+      "target": "37.64.195.242"
+    }
+  },
+  "vuln_nextjs_req_smuggling_2024_34350": {
+    "content": "Next.js HTTP Request Smuggling / response queue poisoning when using rewrites. Severity: HIGH. CVSS v3.1: 7.5 (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N). Affected: routes using next.config.js rewrites in vulnerable versions. Fixed in Next.js 13.5.1 and newer. References: NVD (CVE-2024-34350), GHSA-77r5-gw3j-2mpf.",
+    "category": "vulnerability",
+    "confidence": "high",
+    "status": "confirmed",
+    "metadata": {
+      "target": "37.64.195.242",
+      "cve": "CVE-2024-34350",
+      "url": "https://github.com/vercel/next.js/security/advisories/GHSA-77r5-gw3j-2mpf",
+      "affected_versions": {
+        "Next.js": "< 13.5.1"
+      }
+    }
+  },
+  "vuln_nextjs_ssrf_server_actions_2024_34351": {
+    "content": "Next.js SSRF in Server Actions when Host header is manipulated and application self-hosted; relative redirect to path starting with '/'. Severity: HIGH. CVSS v3.1: 7.5 (AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N). Fixed in Next.js 14.1.1. References: NVD (CVE-2024-34351), GHSA-fr5h-rqp8-mj6g.",
+    "category": "vulnerability",
+    "confidence": "high",
+    "status": "confirmed",
+    "metadata": {
+      "target": "37.64.195.242",
+      "cve": "CVE-2024-34351",
+      "affected_versions": {
+        "Next.js": "< 14.1.1 with Server Actions and specific redirect pattern"
+      }
+    }
+  },
+  "vuln_nextjs_dos_2024_39693": {
+    "content": "Next.js Denial of Service (DoS) condition leading to server crash. Severity: HIGH. CVSS v3.1: 7.5 (AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H). Fixed in Next.js 13.5 and later.",
+    "category": "vulnerability",
+    "confidence": "high",
+    "status": "confirmed",
+    "metadata": {
+      "target": "37.64.195.242",
+      "cve": "CVE-2024-39693",
+      "affected_versions": {
+        "Next.js": "< 13.5"
+      }
+    }
+  },
+  "vuln_nextjs_cache_poisoning_2024_46982": {
+    "content": "Next.js cache poisoning in pages router non-dynamic SSR routes. Severity: HIGH. CVSS v3.1: 7.5. Affected: Next.js 13.5.1\u201314.2.9 (pages router, SSR non-dynamic). Fixed in 13.5.7, 14.2.10, and later. References: NVD CVE-2024-46982, GHSA-gp8f-8m3g-qvj9.",
+    "category": "vulnerability",
+    "confidence": "high",
+    "status": "confirmed",
+    "metadata": {
+      "target": "37.64.195.242",
+      "cve": "CVE-2024-46982",
+      "affected_versions": {
+        "Next.js": "13.5.1\u201314.2.9 (pages router, non-dynamic SSR)"
+      }
+    }
+  },
+  "vuln_nextjs_imgopt_dos_2024_47831": {
+    "content": "DoS in Next.js image optimization leading to excessive CPU consumption. Severity: HIGH (NVD), Medium (GHSA context). Affected: Next.js before 14.2.7 (when using default image optimizer). Not affected if images.unoptimized=true or custom loader. Fixed in 14.2.7. References: NVD CVE-2024-47831, GHSA-g77x-44xx-532m.",
+    "category": "vulnerability",
+    "confidence": "high",
+    "status": "confirmed",
+    "metadata": {
+      "target": "37.64.195.242",
+      "cve": "CVE-2024-47831",
+      "affected_versions": {
+        "Next.js": "< 14.2.7 with default image optimizer"
+      }
+    }
+  },
+  "summary_nextjs_prioritized_findings_2024_2026": {
+    "content": "Prioritized Next.js vulnerability summary for target 37.64.195.242 (research scope: 2024\u20132026)\n\nPriority 1 \u2013 High risk if preconditions met\n- CVE-2024-34350 (HTTP request smuggling / response queue poisoning)\n  Impact: Integrity (H), no auth needed. Exploitable when next.config.js uses rewrites on vulnerable versions.\n  Fix: Upgrade to >= 13.5.1 (or any currently supported latest, e.g., 14.2.10+/15.x).\n  Mitigations: Until patching, disable/limit rewrites behind strict proxy normalization; ensure upstream proxy terminates/normalizes ambiguous requests; WAF rules for smuggling patterns.\n  Refs: GHSA-77r5-gw3j-2mpf, NVD.\n\n- CVE-2024-34351 (SSRF in Server Actions)\n  Impact: Confidentiality (H), no auth needed. Preconditions: self-hosted Next.js, uses Server Actions, and a Server Action redirects to a relative path beginning with '/'; Host header manipulation.\n  Fix: Upgrade to >= 14.1.1.\n  Mitigations: Enforce strict Host header validation at proxy/app; avoid using user-controllable redirects; prefer absolute internal URLs; network egress filtering.\n  Refs: GHSA-fr5h-rqp8-mj6g, NVD.\n\nPriority 2 \u2013 High availability impact / cache integrity\n- CVE-2024-46982 (Cache poisoning in pages router non-dynamic SSR routes)\n  Impact: Availability/Integrity via poisoned CDN/app cache; unauthenticated.\n  Affected: Next.js 13.5.1\u201314.2.9, when using pages router + non-dynamic SSR (e.g., pages/dashboard.tsx).\n  Fix: Upgrade to 13.5.7, 14.2.10, or later.\n  Mitigations: Minimize caching of SSR pages; verify Vary/Cache-Control headers; consider migrating to app router or apply patches.\n  Refs: GHSA-gp8f-8m3g-qvj9, NVD.\n\nPriority 3 \u2013 DoS issues\n- CVE-2024-39693 (Server crash DoS)\n  Impact: Availability (H), unauthenticated.\n  Fix: Upgrade to >= 13.5.\n  Mitigations: Rate limiting and WAF anomaly detection until upgraded.\n  Refs: GHSA-fq54-2j52-jc42, NVD.\n\n- CVE-2024-47831 (Image Optimization DoS)\n  Impact: Availability (H) via CPU exhaustion; unauthenticated.\n  Affected: Next.js < 14.2.7 when using default image optimizer. Not affected if images.unoptimized=true, custom images.loader, or hosted on Vercel.\n  Fix: Upgrade to >= 14.2.7.\n  Mitigations: Temporarily set images.unoptimized=true or use a custom loader; place image routes behind aggressive rate limiting.\n  Refs: GHSA-g77x-44xx-532m, NVD.\n\nRecommended action plan\n- Patch baseline: move to latest supported Next.js (>= 14.2.10 or current 15.x), ensuring 14.1.1+ and 14.2.7+ fixes are included; re-run SCA after upgrade.\n- Config hardening: validate Host header at proxy; restrict rewrites; review Server Actions for redirects; tune cache headers on SSR non-dynamic routes; consider app router migration where feasible.\n- Compensating controls: WAF rules for request smuggling; rate-limit image/_next and SSR routes; egress filtering to reduce SSRF blast radius.\n- Verification: after patching, regression-test affected paths (rewrites, Server Actions redirects, pages SSR cache behavior, image optimizer).",
+    "category": "info",
+    "confidence": "high",
+    "status": "confirmed",
+    "metadata": {
+      "target": "37.64.195.242"
+    }
+  },
+  "open_ports_86_214_102_157": {
+    "content": "Top 1000 TCP port scan results for 86.214.102.157. Open ports found: 80 (http), 443 (https). Closed: 53, 113. 996 filtered.",
+    "category": "finding",
+    "confidence": "high",
+    "status": "open",
+    "metadata": {
+      "target": "86.214.102.157",
+      "services": [
+        {
+          "port": 80,
+          "product": "unknown",
+          "version": "unknown"
+        },
+        {
+          "port": 443,
+          "product": "unknown",
+          "version": "unknown"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "TCP",
+          "version": "N/A"
+        }
+      ]
+    }
+  },
+  "profile_web_86_214_102_157": {
+    "content": "Service/version detection for 86.214.102.157. Evidence suggests Orange Livebox router management interface. HTTP on 80 returns empty reply; HTTPS on 443 presents Livebox Nautilus certificate. TLS 1.2/1.3 supported. Likely WAN-exposed router UI but HTTP responses blocked or restricted from external network.",
+    "category": "finding",
+    "confidence": "high",
+    "status": "confirmed",
+    "metadata": {
+      "target": "86.214.102.157",
+      "services": [
+        {
+          "port": 80,
+          "product": "HTTP service (Livebox? unknown)",
+          "version": "unknown"
+        },
+        {
+          "port": 443,
+          "product": "HTTPS (Livebox Nautilus management)",
+          "version": "unknown"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "TLS",
+          "version": "1.2, 1.3 (observed)"
+        },
+        {
+          "name": "Orange Livebox Nautilus",
+          "version": "unknown"
+        }
+      ],
+      "endpoints": []
+    }
+  },
+  "cve_2024_57725": {
+    "content": "Arcadyan Livebox Fibra PRV3399B_B_LT: unauthenticated modification of GPON link via /firstconnection.cgi; also info disclosure via /cgi/cgi_authpage.js (slid_value). DoS by disconnecting internet.",
+    "category": "vulnerability",
+    "confidence": "high",
+    "status": "confirmed",
+    "metadata": {
+      "target": "86.214.102.157",
+      "cve": "CVE-2024-57725",
+      "affected_versions": {
+        "Arcadyan Livebox Fibra PRV3399B_B_LT firmware": "unspecified; model-specific"
+      }
+    }
+  }
+}

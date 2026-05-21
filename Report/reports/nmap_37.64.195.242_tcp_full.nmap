@@ -1,0 +1,10 @@
+# Nmap 7.98 scan initiated Wed May 20 17:20:32 2026 as: nmap -vv -n -Pn -sT -p- --reason -T4 -oA loot/reports/nmap_37.64.195.242_tcp_full 37.64.195.242
+Nmap scan report for 37.64.195.242
+Host is up, received user-set (0.00s latency).
+Scanned at 2026-05-20 17:20:32 CEST for 211s
+Not shown: 61743 filtered tcp ports (net-unreach), 3791 filtered tcp ports (no-response)
+PORT   STATE SERVICE REASON
+53/tcp open  domain  syn-ack
+
+Read data files from: /opt/homebrew/bin/../share/nmap
+# Nmap done at Wed May 20 17:24:03 2026 -- 1 IP address (1 host up) scanned in 210.86 seconds

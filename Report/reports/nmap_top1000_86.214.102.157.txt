@@ -1,0 +1,11 @@
+# Nmap 7.98 scan initiated Wed May 20 19:08:55 2026 as: nmap -Pn -sT --top-ports 1000 -T4 -n -oN loot/reports/nmap_top1000_86.214.102.157.txt 86.214.102.157
+Nmap scan report for 86.214.102.157
+Host is up (0.0040s latency).
+Not shown: 996 filtered tcp ports (no-response)
+PORT    STATE  SERVICE
+53/tcp  closed domain
+80/tcp  open   http
+113/tcp closed ident
+443/tcp open   https
+
+# Nmap done at Wed May 20 19:09:37 2026 -- 1 IP address (1 host up) scanned in 42.63 seconds

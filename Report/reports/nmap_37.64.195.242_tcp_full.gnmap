@@ -1,0 +1,5 @@
+# Nmap 7.98 scan initiated Wed May 20 17:20:32 2026 as: nmap -vv -n -Pn -sT -p- --reason -T4 -oA loot/reports/nmap_37.64.195.242_tcp_full 37.64.195.242
+# Ports scanned: TCP(65535;1-65535) UDP(0;) SCTP(0;) PROTOCOLS(0;)
+Host: 37.64.195.242 ()	Status: Up
+Host: 37.64.195.242 ()	Ports: 53/open/tcp//domain///	Ignored State: filtered (65534)
+# Nmap done at Wed May 20 17:24:03 2026 -- 1 IP address (1 host up) scanned in 210.86 seconds

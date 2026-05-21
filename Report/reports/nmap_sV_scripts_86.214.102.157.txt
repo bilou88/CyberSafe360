@@ -1,0 +1,45 @@
+# Nmap 7.98 scan initiated Wed May 20 19:12:06 2026 as: nmap -Pn -sT -sV --version-all -p 80,443 --script=http-title,http-server-header,http-headers,ssl-cert,ssl-enum-ciphers -n -oN loot/reports/nmap_sV_scripts_86.214.102.157.txt 86.214.102.157
+Nmap scan report for 86.214.102.157
+Host is up (0.0060s latency).
+
+PORT    STATE SERVICE    VERSION
+80/tcp  open  http?
+443/tcp open  ssl/https?
+| ssl-cert: Subject: commonName=3806E6-Livebox Nautilus-JA24358AV000854/organizationName=Orange/countryName=FR
+| Subject Alternative Name: IP Address:192.168.1.1
+| Issuer: commonName=Livebox Nautilus GW OFR Prod/organizationName=Orange/countryName=FR
+| Public Key type: ec
+| Public Key bits: 384
+| Signature Algorithm: ecdsa-with-SHA256
+| Not valid before: 2024-11-30T02:00:04
+| Not valid after:  2039-11-30T02:00:04
+| MD5:     a1e3 8c65 0d02 05a5 b69c 4b92 b44c b1e2
+| SHA-1:   f45b f4c6 2d34 a47a 3e11 d87f b607 8647 cddb e522
+|_SHA-256: fc23 9801 9dc0 580d e875 7a18 24b2 7b10 3918 37d0 5bb6 6c88 bd99 281e 2218 39aa
+| ssl-enum-ciphers: 
+|   TLSv1.2: 
+|     ciphers: 
+|       TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA (secp256r1) - A
+|       TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 (secp256r1) - A
+|       TLS_ECDHE_ECDSA_WITH_AES_128_CCM (secp256r1) - A
+|       TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8 (secp256r1) - A
+|       TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (secp256r1) - A
+|       TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA (secp256r1) - A
+|       TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 (secp256r1) - A
+|       TLS_ECDHE_ECDSA_WITH_AES_256_CCM (secp256r1) - A
+|       TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8 (secp256r1) - A
+|       TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (secp256r1) - A
+|       TLS_ECDHE_ECDSA_WITH_ARIA_128_GCM_SHA256 (secp256r1) - A
+|       TLS_ECDHE_ECDSA_WITH_ARIA_256_GCM_SHA384 (secp256r1) - A
+|       TLS_ECDHE_ECDSA_WITH_CAMELLIA_128_CBC_SHA256 (secp256r1) - A
+|       TLS_ECDHE_ECDSA_WITH_CAMELLIA_256_CBC_SHA384 (secp256r1) - A
+|       TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 (secp256r1) - A
+|     compressors: 
+|       NULL
+|     cipher preference: client
+|     warnings: 
+|       Key exchange (secp256r1) of lower strength than certificate key
+|_  least strength: A
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed May 20 19:18:35 2026 -- 1 IP address (1 host up) scanned in 388.55 seconds
